@@ -21,33 +21,11 @@
 				}
 			}
 		},
-		{
-			"port": 20000,
-			"listen": "127.0.0.1",
-			"protocol": "vless",
-			"settings": {
-				"clients": [{
-					"id": "UUID"
-				}],
-				"decryption": "none"
-			},
-			"streamSettings": {
-				"network": "ws",
-				"wsSettings": {
-					"path": "/vl"
-				}
-			}
-		}
 	],
-	"outbounds": [{
-		"protocol": "freedom",
-		"settings": {}
-	}],
-	"dns": {
-		"server": [
-			"8.8.8.8",
-			"8.8.4.4",
-			"localhost"
-		]
-	}
+	"outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    }
+  ]
 }
