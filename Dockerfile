@@ -2,11 +2,7 @@ FROM ubuntu
 
 RUN apt update -y && apt install -y wget unzip nginx supervisor qrencode net-tools
 
-RUN mkdir -p /etc/supervisor/conf.d /etc/nginx /etc/mysql /usr/local/mysql
-
-RUN wget -O /etc/supervisor/conf.d/supervisord.conf https://raw.githubusercontent.com/brainiac19/V2ray-for-Codesandbox/main/supervisord.conf
-
-RUN wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/brainiac19/V2ray-for-Codesandbox/main/nginx.conf
+RUN mkdir -p /etc/mysql /usr/local/mysql
 
 RUN wget -O /etc/mysql/config.json https://raw.githubusercontent.com/brainiac19/V2ray-for-Codesandbox/main/config.json
 
