@@ -3,19 +3,13 @@
 # Web Site:https://www.hicairo.com
 # Telegram:https://t.me/HiaiFeng
 
-UUID=${UUID:-'de04add9-5c68-8bab-950c-08cd5320df18'}
+UUID=${UUID:-'480e4664-9da3-11ee-8c90-0242ac120002'}
 VMESS_WSPATH='/vm'
-VLESS_WSPATH='/vl'
-URL=${HOSTNAME}-3000.csb.app
+URL=${HOSTNAME}-10000.csb.app
 
-sed -i "s#UUID#$UUID#g;s#VMESS_WSPATH#$VMESS_WSPATH#g;s#VLESS_WSPATH#$VLESS_WSPATH#g" /etc/mysql/config.json
-sed -i "s#VMESS_WSPATH#$VMESS_WSPATH#g;s#VLESS_WSPATH#$VLESS_WSPATH#g" /etc/nginx/nginx.conf
-
-vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"hicairo.com\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"0\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
-vllink="vless://"$UUID"@"$URL":443?encryption=none&security=tls&type=ws&host="$URL"&path="$VLESS_WSPATH"#hicairo.com"
+vmlink=vmess://$(echo -n "{\"v\":\"2\",\"ps\":\"csb\",\"add\":\"$URL\",\"port\":\"443\",\"id\":\"$UUID\",\"aid\":\"64\",\"net\":\"ws\",\"type\":\"none\",\"host\":\"$URL\",\"path\":\"$VMESS_WSPATH\",\"tls\":\"tls\"}" | base64 -w 0)
 
 qrencode -o /usr/share/nginx/html/M$UUID.png $vmlink
-qrencode -o /usr/share/nginx/html/L$UUID.png $vllink
 
 cat > /usr/share/nginx/html/$UUID.html<<-EOF
 <html>
@@ -40,10 +34,6 @@ div {
 <div>$vmlink</div>
 <div><font color="#009900"><b>VMESS协议二维码：</b></font></div>
 <div><img src="/M$UUID.png"></div>
-<div><font color="#009900"><b>VLESS协议链接：</b></font></div>
-<div>$vllink</div>
-<div><font color="#009900"><b>VLESS协议二维码：</b></font></div>
-<div><img src="/L$UUID.png"></div>
 </body>
 </html>
 EOF
