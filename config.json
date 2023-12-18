@@ -11,13 +11,13 @@
 			"settings": {
 				"clients": [{
 					"id": "UUID",
-					"alterId": 0
+					"alterId": 64
 				}]
 			},
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-					"path": "VMESS_WSPATH"
+					"path": "/vm"
 				}
 			}
 		},
@@ -34,7 +34,7 @@
 			"streamSettings": {
 				"network": "ws",
 				"wsSettings": {
-					"path": "VLESS_WSPATH"
+					"path": "/vl"
 				}
 			}
 		}
