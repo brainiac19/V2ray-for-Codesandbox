@@ -4,8 +4,8 @@
     "supervisord": {
       "name": "supervisord",
       "command": "/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf",
-	  "preview": {
-		"port": 8080,
+	"preview": {
+        "port": 3000,
         "prLink": "direct"
       },
       "runAtStart": true
